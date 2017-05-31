@@ -15,7 +15,7 @@ import redis
 import requests as req
 reload(sys)
 sys.setdefaultencoding("utf-8")
-TOKEN = ''
+TOKEN = '393609099:AAFC5VIY8wNamC7rrJvOk9ToHfRR5gLkECA'
 bot = telebot.TeleBot(TOKEN)
 redis = redis.StrictRedis(host='localhost', port=6379, db=0)
 db = "https://api.telegram.org/bot{}/getMe?".format(TOKEN)
@@ -35,7 +35,7 @@ def start(m):
 	 
 @bot.message_handler(commands=['panel'])
 def panel(m):
-    if m.from_user.id == 65761134 :
+    if m.from_user.id == 170146015 :
      markup = types.InlineKeyboardMarkup()
      c = types.InlineKeyboardButton("امار",callback_data='amar')
      markup.add(c)
@@ -43,7 +43,7 @@ def panel(m):
 
 @bot.message_handler(commands=['fwdall'])
 def fwdall(m):
-    if m.from_user.id == 65761134 :
+    if m.from_user.id == 170146015 :
         if m.reply_to_message:
             mid = m.reply_to_message.message_id
             ids = redis.smembers('alls')
@@ -55,7 +55,7 @@ def fwdall(m):
 		
 @bot.message_handler(commands=['bc'])
 def clac(m):
-    if m.from_user.id == 65761134 :
+    if m.from_user.id == 170146015 :
         text = m.text.replace("/bc ","")
         rd = redis.smembers('alls')
         for id in rd:
